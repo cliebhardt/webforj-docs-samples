@@ -99,6 +99,21 @@
               <target>17</target>
             </configuration>
           </plugin>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.5</version>
+            <configuration>
+              <properties>
+                <configurationParameters>
+                  junit.jupiter.execution.parallel.enabled = true
+                  junit.jupiter.execution.parallel.mode.default = same_thread
+                  junit.jupiter.execution.parallel.mode.classes.default = concurrent
+                  junit.jupiter.execution.parallel.config.strategy=dynamic
+                  junit.jupiter.execution.parallel.config.dynamic.factor=0.5
+                </configurationParameters>
+              </properties>
+            </configuration>
+          </plugin>
         </plugins>
     </build>
 </project>
