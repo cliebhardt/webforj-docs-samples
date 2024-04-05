@@ -1,0 +1,20 @@
+# This workflow will test a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+
+name: Components Test
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Test with Maven
+      run: mvn -B test --file pom.xml
