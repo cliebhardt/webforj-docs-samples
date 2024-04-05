@@ -8,34 +8,7 @@ import org.junit.jupiter.api.*;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DialogTest {
-
-  static Playwright playwright;
-  static Browser browser;
-  BrowserContext context;
-  Page page;
-
-  @BeforeAll
-  static void launchBrowser() {
-    playwright = Playwright.create();
-    browser = playwright.chromium().launch();
-  }
-
-  @AfterAll
-  static void closeBrowser() {
-    playwright.close();
-  }
-
-  @BeforeEach
-  void setUp() {
-    context = browser.newContext();
-    page = context.newPage();
-  }
-
-  @AfterEach
-  void breakDown() {
-    context.close();
-  }
+public class DialogTest extends ChromiumFixtures {
 
   @Test
   void dialogShouldBeHidden() {

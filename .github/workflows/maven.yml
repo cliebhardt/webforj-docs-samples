@@ -13,8 +13,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - name: Build & Install
-        run: mvn -B compile
+      - name: Compile
+        run: mvn -B package -D skipTests --no-transfer-progress
       - name: Install Playwright
         run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
       - name: Run tests

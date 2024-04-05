@@ -8,33 +8,11 @@ import java.util.regex.Pattern;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class ButtonTest {
-  static Playwright playwright;
-  static Browser browser;
-  BrowserContext context;
-  Page page;
-
-  @BeforeAll
-  static void launchBrowser() {
-    playwright = Playwright.create();
-    browser = playwright.chromium().launch();
-  }
-
-  @AfterAll
-  static void closeBrowser() {
-    playwright.close();
-  }
+public class ButtonTest extends ChromiumFixtures {
 
   @BeforeEach
   void setUp() {
-    context = browser.newContext();
-    page = context.newPage();
     page.navigate("https://documentation.webforj.com/docs/components/button");
-  }
-
-  @AfterEach
-  void breakDown() {
-    context.close();
   }
 
   @Test
