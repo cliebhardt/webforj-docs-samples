@@ -1,14 +1,18 @@
 package componentdemos.buttondemos;
 
-import com.microsoft.playwright.*;
+import com.microsoft.playwright.FrameLocator;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import org.junit.jupiter.api.*;
+import fixtures.WebkitFixtures;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.regex.Pattern;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class ButtonTest extends ChromiumFixtures {
+public class WebkitButtonTest extends WebkitFixtures {
 
   @BeforeEach
   void setUp() {

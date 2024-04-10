@@ -1,14 +1,18 @@
-package componentdemos.buttondemos;
+package componentdemos.dialogdemos;
 
-import com.microsoft.playwright.*;
+import com.microsoft.playwright.FrameLocator;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
-import org.junit.jupiter.api.*;
+import fixtures.FirefoxFixtures;
+import org.junit.jupiter.api.Test;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DialogTest extends ChromiumFixtures {
+public class FirefoxDialogTest extends FirefoxFixtures {
 
   @Test
   void dialogShouldBeHidden() {
@@ -17,7 +21,7 @@ public class DialogTest extends ChromiumFixtures {
       new Page.GetByRoleOptions()
         .setName("Closing the Dialog")
         .setExact(true)
-      ).click(new Locator.ClickOptions().setClickCount(2));
+    ).click(new Locator.ClickOptions().setClickCount(2));
     page.frameLocator(".css-trexur >> nth=0")
       .getByRole(AriaRole.BUTTON,
         new FrameLocator.GetByRoleOptions()
