@@ -1,5 +1,7 @@
 # Testing with Playwright
 
+# Note: Test can currently fail, when the Demo is not loaded properly on the documentation site.
+
 ## Playwright Setup
 
 To use Playwright in the project it needs to
@@ -27,7 +29,7 @@ be added to the pom.xml.
 </build>
 ```
 After including it in the pom.xml the following command needs to 
-be executed
+be executed:
 
 `mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"`
 
@@ -87,8 +89,12 @@ leave the `launch` method empty.
 `Page` is the most important component of the test, as it is used to
 interact and test the functionality of the site.
 
-See [Guides](https://playwright.dev/java/docs/input) on how to interact 
-with the website and how make assertions on elements.
+To interact with elements on the site a locator is used. Instead of
+writing the locator oneself, the codegen tool, described later, should
+be used instead. See [Guides](https://playwright.dev/java/docs/input) on how to interact with the website 
+and how make assertions on elements.
+Note: The `isChecked` method, that asserts that check boxes and radio buttons
+are checked, seems to only work on radio switches.
 
 To cut down on the time it requires to execute the tests, 
 the following setup should be used instead.
@@ -150,9 +156,9 @@ to enable JUnit to run multiple test in parallel.
 </build>
 ```
 A `DebugFixtures` is provided that can be temporarily extended by the
-test class, its LaunchOptions can be configured as seen fit.
-See [Parallel Execution](https://junit.org/junit5/docs/snapshot/user-guide/index.html#writing-tests-parallel-execution)
-in the JUnit documentation for more information.
+test class, its `LaunchOptions` can be configured as seen fit.
+See [Parallel Execution](https://junit.org/junit5/docs/snapshot/user-guide/index.html#writing-tests-parallel-execution) in the JUnit documentation for more 
+information.
 
 ## Creating Tests
 
