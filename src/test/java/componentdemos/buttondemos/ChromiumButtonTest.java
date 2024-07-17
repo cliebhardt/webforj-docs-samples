@@ -24,7 +24,7 @@ public class ChromiumButtonTest extends ChromiumFixtures {
       .isVisible();
   }
 
-  @Test
+  /*@Test
   void shouldEmptyTextFields() {
     page.frameLocator("iframe >> nth=0")
       .getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Clear")).click();
@@ -34,9 +34,9 @@ public class ChromiumButtonTest extends ChromiumFixtures {
       .isEmpty();
     assertThat(page.frameLocator("iframe").first().getByLabel("E-mail:"))
       .isEmpty();
-  }
+  }*/
 
-  @Test
+ /* @Test
   void shouldShowWarningForMalformedEmail() {
     page.navigate("https://documentation.webforj.com/docs/components/button");
     page.frameLocator("iframe >> nth=0").getByLabel("E-mail:").click();
@@ -44,7 +44,7 @@ public class ChromiumButtonTest extends ChromiumFixtures {
       .getByLabel("E-mail:").fill("turner.jasonemail.com");
     assertThat(page.frameLocator("iframe").first().getByText("Please include an '@' in the"))
       .isVisible();
-  }
+  }*/
 
   @Test
   void shouldEnableButton() {

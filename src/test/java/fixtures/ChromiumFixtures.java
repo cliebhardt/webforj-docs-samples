@@ -1,9 +1,6 @@
 package fixtures;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -18,7 +15,8 @@ public class ChromiumFixtures {
   @BeforeAll
   void launchBrowser() {
     playwright = Playwright.create();
-    browser = playwright.chromium().launch();
+    browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
+      .setHeadless(false));
   }
 
   @AfterAll
